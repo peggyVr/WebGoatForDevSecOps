@@ -16,9 +16,9 @@ node ('ubuntu'){
     stage('Build-and-Tag') {
     /* This builds the actual image; synonymous to
          * docker build on the command line */
+	sh 'mvn install'
 	sh 'cd build/webgoat-server'
-	app = docker.build("peggyvr/snake:new")
-
+	sh 'docker build -t peggyvr/webgoat-devsecops'
 	sh 'tag peggyvr/webgoat-devsecops peggyvr/webgoat-devsecops:new'
     }
     stage('Post-to-dockerhub') {
