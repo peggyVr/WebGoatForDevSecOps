@@ -13,14 +13,6 @@ node ('ubuntu'){
     stage('SAST'){
      /* build 'Sonar-Qube' */   
      }
-    stage('Build-and-Tag') {
-    /* This builds the actual image; synonymous to
-         * docker build on the command line 
-	sh 'mvn install'
-	sh 'cd build/webgoat-server'
-	sh 'docker build -t peggyvr/webgoat-devsecops'
-	sh 'tag peggyvr/webgoat-devsecops peggyvr/webgoat-devsecops:new'*/
-    }
     stage('Pull-from-dockerhub') {
 	sh 'docker pull webgoat/webgoat-8.0'    
 
@@ -31,11 +23,9 @@ node ('ubuntu'){
     stage('SECURITY-IMAGE-SCANNER'){
         sh 'echo scan image for security'
     }
-  
+    stage('Run-image-server') {
     
-    stage('Pull-image-server') {
-    
-       /*  sh "docker-compose down" sh "docker-compose up -d"*/	
+         sh "docker run -p 9090:9090 -t webgoat/webgoat-8.0"	
       }
     
     stage('DAST')
