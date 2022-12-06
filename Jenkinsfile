@@ -8,7 +8,7 @@ node ('ubuntu'){
 	 git clone "ssh://git@github.com:WebGoat/WebGoat.git"
     } */ 
     stage('SAST'){
-     /* build 'Sonar-Qube' */   
+      sh 'echo Sonar-Qube'    
      }
     stage('DAST')
         {
