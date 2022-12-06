@@ -22,8 +22,8 @@ node ('ubuntu'){
     stage('Post-to-dockerhub') {
     
      /*withDockerRegistry([credentialsId: "dockerhub", url: ""]) {
-            app.push("new") */
-        			}
+            app.push("new") 
+        			} */
          }
     stage('SECURITY-IMAGE-SCANNER'){
         sh 'echo scan image for security'
