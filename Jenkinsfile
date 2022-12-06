@@ -18,7 +18,7 @@ node ('ubuntu'){
     stage('Build-and-Tag') {
     /* This builds the actual image; synonymous to
          * docker build on the command line */
-        /*app = docker.build("peggyvr/snake:new")*/
+        app = docker.build("peggyvr/webgoat-devsecops :new")
     }
     stage('Post-to-dockerhub') {
     
