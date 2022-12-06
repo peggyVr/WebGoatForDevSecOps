@@ -3,10 +3,10 @@ node ('ubuntu'){
     environment {
         dockerhub = credentials('dockerhub')
     }
-    stage('Cloning Git') {
+    /* stage('Cloning Git') {
         /* Let's make sure we have the repository cloned to our workspace */
 	 git clone "ssh://git@github.com:WebGoat/WebGoat.git"
-    }  
+    } */ 
     stage('SAST'){
      /* build 'Sonar-Qube' */   
      }
