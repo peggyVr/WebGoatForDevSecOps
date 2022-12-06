@@ -7,7 +7,7 @@ node ('ubuntu'){
         /* Let's make sure we have the repository cloned to our workspace */
       /* checkout scm */
 	dir('build') {
-          git branch: "develop", url: "https://github.com/WebGoat/WebGoat.git"
+          git branch: "release/v8.2.2", url: "https://github.com/WebGoat/WebGoat.git"
       }
     }  
     stage('SAST'){
