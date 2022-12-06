@@ -15,14 +15,15 @@ node ('ubuntu'){
      }
     stage('Build-and-Tag') {
     /* This builds the actual image; synonymous to
-         * docker build on the command line */
+         * docker build on the command line 
 	sh 'mvn install'
 	sh 'cd build/webgoat-server'
 	sh 'docker build -t peggyvr/webgoat-devsecops'
-	sh 'tag peggyvr/webgoat-devsecops peggyvr/webgoat-devsecops:new'
+	sh 'tag peggyvr/webgoat-devsecops peggyvr/webgoat-devsecops:new'*/
     }
-    stage('Post-to-dockerhub') {
-    
+    stage('Pull-from-dockerhub') {
+	sh 'docker pull webgoat/webgoat-8.0'    
+
     /*  withDockerRegistry([credentialsId: "dockerhub", url: ""]) { */
           /*  app.push("new")*/
         		/*	}*/
