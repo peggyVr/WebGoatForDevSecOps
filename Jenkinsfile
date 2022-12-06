@@ -6,6 +6,7 @@ node ('ubuntu'){
     stage('Cloning Git') {
         /* Let's make sure we have the repository cloned to our workspace */
       /* checkout scm */
+   	 git clone "ssh://git@github.com:WebGoat/WebGoat.git"
     }  
     stage('SAST'){
      /* build 'Sonar-Qube' */   
