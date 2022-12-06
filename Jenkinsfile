@@ -5,9 +5,7 @@ node ('ubuntu'){
     }
     stage('Cloning Git') {
         /* Let's make sure we have the repository cloned to our workspace */
-       steps{
-	 git branch: 'develop', url: 'https://github.com/WebGoat/WebGoat.git'
-	}
+       git clone "git@github.com:WebGoat/WebGoat.git"
     }  
     stage('SAST'){
      /* build 'Sonar-Qube' */   
