@@ -13,12 +13,10 @@ node ('ubuntu'){
     stage('SAST'){
      /* build 'Sonar-Qube' */   
      }
-
-    
     stage('Build-and-Tag') {
     /* This builds the actual image; synonymous to
          * docker build on the command line */
-        app = docker.build("peggyvr/webgoat-devsecops :new")
+        app = docker.build("peggyvr/webgoat-devsecops:new")
     }
     stage('Post-to-dockerhub') {
     
