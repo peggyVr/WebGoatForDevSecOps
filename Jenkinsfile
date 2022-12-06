@@ -3,13 +3,36 @@ node ('ubuntu'){
     environment {
         dockerhub = credentials('dockerhub')
     }
-    /* stage('Cloning Git') {
+    stage('Cloning Git') {
         /* Let's make sure we have the repository cloned to our workspace */
-	 git clone "ssh://git@github.com:WebGoat/WebGoat.git"
-    } */ 
+      /* checkout scm */
+    }  
     stage('SAST'){
-      sh 'echo Sonar-Qube'    
+     /* build 'Sonar-Qube' */   
      }
+
+    
+    stage('Build-and-Tag') {
+    /* This builds the actual image; synonymous to
+         * docker build on the command line */
+        /*app = docker.build("peggyvr/snake:new")*/
+    }
+    stage('Post-to-dockerhub') {
+    
+    /*  withDockerRegistry([credentialsId: "dockerhub", url: ""]) {
+            app.push("new")*/
+        			}
+         }
+    stage('SECURITY-IMAGE-SCANNER'){
+        sh 'echo scan image for security'
+    }
+  
+    
+    stage('Pull-image-server') {
+    
+       /*  sh "docker-compose down" sh "docker-compose up -d"*/	
+      }
+    
     stage('DAST')
         {
          sh 'echo dast scan for security'
