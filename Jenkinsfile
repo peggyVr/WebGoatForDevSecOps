@@ -17,7 +17,7 @@ node ('ubuntu'){
     /* This builds the actual image; synonymous to
          * docker build on the command line */
 	sh 'cd build/webgoat-server'
-	sd 'docker build -t peggyvr/webgoat-devsecops'
+	sh 'docker build -t peggyvr/webgoat-devsecops'
 	sh 'tag peggyvr/webgoat-devsecops peggyvr/webgoat-devsecops:new'
     }
     stage('Post-to-dockerhub') {
