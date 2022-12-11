@@ -32,7 +32,7 @@ node ('ubuntu'){
     }
     stage('Run-image-server') {
     
-        /* sh "docker run --detouch -p 8080:8080 -p 9090:9090 -p 80:8888 -e TZ=Europe/Athens webgoat/goatandwolf:latest" */	
+        sh "docker run --detouch -p 8080:8080 -p 9090:9090 -p 80:8888 -e TZ=Europe/Athens peggyvr/webgoat-devsecops:new" 	
       }
     
     stage('DAST')
