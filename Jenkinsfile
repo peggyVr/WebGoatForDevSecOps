@@ -24,7 +24,7 @@ node ('ubuntu'){
 	sh "docker tag webgoat/goatandwolf:latest peggyvr/webgoat-devsecops:new"
 	app = docker.image('webgoat/goatandwolf')
 	withDockerRegistry([credentialsId: "dockerhub", url: ""]) {  
-	  app.push("peggyvr/webgoat-devsecops:new")              
+	  app.push("new")              
          }
     }
     stage('SECURITY-IMAGE-SCANNER'){
