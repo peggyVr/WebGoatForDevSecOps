@@ -23,7 +23,7 @@ node ('ubuntu'){
     stage('Post-to-dockerhub'){
 	app = docker.image('webgoat/goatandwolf')
 	withDockerRegistry([credentialsId: "dockerhub", url: ""]) {  
-	  app.push("new")              
+	  app.push("peggyvr/webgoat-devsecops:new")              
          }
     }
     stage('SECURITY-IMAGE-SCANNER'){
