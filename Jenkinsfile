@@ -21,6 +21,7 @@ node ('ubuntu'){
         		/*	}*/
          }
     stage('Post-to-dockerhub'){
+	sh "docker tag webgoat/goatandwolf:latest peggyvr/webgoat-devsecops:new"
 	app = docker.image('webgoat/goatandwolf')
 	withDockerRegistry([credentialsId: "dockerhub", url: ""]) {  
 	  app.push("peggyvr/webgoat-devsecops:new")              
