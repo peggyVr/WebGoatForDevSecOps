@@ -14,7 +14,7 @@ node ('ubuntu'){
      /* build 'Sonar-Qube' */   
      }
     stage('Pull-from-dockerhub') {
-	sh 'docker pull webgoat/webgoat-8.0'    
+	sh 'docker pull webgoat/goatandwolf'    
 
     /*  withDockerRegistry([credentialsId: "dockerhub", url: ""]) { */
           /*  app.push("new")*/
@@ -25,7 +25,7 @@ node ('ubuntu'){
     }
     stage('Run-image-server') {
     
-         sh "docker run -p 9090:9090 -t webgoat/webgoat-8.0"	
+         sh "docker run -p 8080:8080 -p 9090:9090 -p 80:8888 -e TZ=Europe/Athens webgoat/goatandwolf:latest -d"	
       }
     
     stage('DAST')
