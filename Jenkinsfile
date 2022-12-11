@@ -22,7 +22,7 @@ node ('ubuntu'){
          }
     stage('Post-to-dockerhub'){
 	sh "docker tag webgoat/goatandwolf:latest peggyvr/webgoat-devsecops:new"
-	app = docker.image('webgoat/goatandwolf')
+	app = docker.image('peggyvr/webgoat-devsecops')
 	withDockerRegistry([credentialsId: "dockerhub", url: ""]) {  
 	  app.push("new")              
          }
