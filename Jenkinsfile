@@ -20,12 +20,18 @@ node ('ubuntu'){
           /*  app.push("new")*/
         		/*	}*/
          }
+    stage('Post-to-dockerhub'){
+	app = docker.image('webgoat/goatandwolf')
+	withDockerRegistry([credentialsId: "dockerhub", url: ""]) {  
+	  app.push("new")              
+         }
+    }
     stage('SECURITY-IMAGE-SCANNER'){
         sh 'echo scan image for security'
     }
     stage('Run-image-server') {
     
-         sh "docker run -p 8080:8080 -p 9090:9090 -p 80:8888 -e TZ=Europe/Athens webgoat/goatandwolf:latest -d"	
+        /* sh "docker run --detouch -p 8080:8080 -p 9090:9090 -p 80:8888 -e TZ=Europe/Athens webgoat/goatandwolf:latest" */	
       }
     
     stage('DAST')
